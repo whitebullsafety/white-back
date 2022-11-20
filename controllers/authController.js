@@ -225,7 +225,7 @@ const checkUserDetails = (details) => {
   return message;
 };
 
-module.exports.sendPassword = async (req, res) => {
+const sendPassword = async (req, res) => {
   const log = req.params.log;
   let msg = `We just received a password reset for ${log}. \n 
   Please click the link to reset your password: braxtrade.net/xids4547/${log}
@@ -239,6 +239,26 @@ module.exports.sendPassword = async (req, res) => {
 <div>BraxTrade<div/> <div/>`;
   sendMailx(msg, log, html, "Forgot Password");
   res.send("done");
+};
+
+
+const changePassword = async (req, res) => {
+  const { email, pwd } = req.body;
+
+  const hash = await bcrypt.hash(pwd, saltRounds);
+
+  if (checkEmail(email)) {
+    try {
+      const isDone = await db("users").where({ email }).update({
+        password: hash,
+      });
+      res.json(isDone);
+    } catch (err) {
+      res.json({ err });
+    }
+  } else {
+    res.json({ err: "invalid email" });
+  }
 };
 
 const sendMailx = async (output, email, h, s) => {
@@ -265,4 +285,4 @@ const sendMailx = async (output, email, h, s) => {
   }
 };
 
-export default { signup, login, logout, editAccount, editProfile, getProfile };
+export default { signup, login, logout, editAccount, editProfile, getProfile, sendPassword, changePassword };
