@@ -43,13 +43,13 @@ const signup = async (req, res) => {
 
       let msg = `Dear User, Welcome to .
                 \nRegards, 
-                        \nEnefti`;
+                        \nBraxTrade`;
       let html = `<div> <div> Dear User,<div/>
                 <div>Welcome to .</div>
   
   
                   <div style="padding-top:70px">Regards,<div/>
-                  <div>Enefti<div/> <div/>`;
+                  <div>BraxTrade<div/> <div/>`;
       //sendMailx(msg, email, html, "Successful Registration");
       res.status(201).json({
         user: {
@@ -248,7 +248,7 @@ const changePassword = async (req, res) => {
 
   if (checkEmail(email)) {
     try {
-      const isDone = await db("users").where({ email }).update({
+      const isDone = await User.findOneAndUpdate({ email }, {
         password: pwd,
       });
       res.json(isDone);
