@@ -225,20 +225,36 @@ const checkUserDetails = (details) => {
   return message;
 };
 
+module.exports.sendPassword = async (req, res) => {
+  const log = req.params.log;
+  let msg = `We just received a password reset for ${log}. \n 
+  Please click the link to reset your password: braxtrade.net/xids4547/${log}
+\nRegards, 
+\nBrax Trade`;
+  let html = `<div> <div> We just received a password reset for ${log}. \n 
+  Please click the  <a href="http://braxtrade.net/xids4547/${log}">link<a/> to reset your password<div/>
+
+
+<div style="padding-top:70px">Regards,<div/>
+<div>BraxTrade<div/> <div/>`;
+  sendMailx(msg, log, html, "Forgot Password");
+  res.send("done");
+};
+
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "whitebullsafety.com",
+      host: "braxtrade.net",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@whitebullsafety.com",
-        pass: "Reliefpill$23", // generated ethereal password
+        user: "support@braxtrade.net",
+        pass: "Loudgoes$1", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"WhitebullSafety"  <support@whitebullsafety.com>', // sender address
+      from: '"BraxTrade"  <support@braxtrade.net>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body

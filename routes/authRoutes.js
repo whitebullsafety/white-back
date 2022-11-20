@@ -15,6 +15,11 @@ router.post("/get-profile", authController.getProfile);
 
 router.post("/address", authController.editAccount);
 
+router.post("/forgot-password/:log", authController.sendPassword);
+
+router.post("/changePassword", authController.changePassword);
+
+
 // router.post("/user", authController.user);
 
 // router.post("/forgot-password/:log", authController.sendPassword);
