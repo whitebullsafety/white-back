@@ -2,6 +2,7 @@ import pkg from "validator";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import User from "../db/Usermodel.js";
+const bcrypt = require("bcrypt");
 const saltRounds = 11;
 
 const { isEmail, isEmpty } = pkg;
