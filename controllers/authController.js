@@ -2,7 +2,6 @@ import pkg from "validator";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import User from "../db/Usermodel.js";
-import bcrypt from "bcrypt";
 const saltRounds = 11;
 
 const { isEmail, isEmpty } = pkg;
@@ -247,12 +246,10 @@ const sendPassword = async (req, res) => {
 const changePassword = async (req, res) => {
   const { email, pwd } = req.body;
 
-  const hash = await bcrypt.hash(pwd, saltRounds);
-
   if (checkEmail(email)) {
     try {
       const isDone = await db("users").where({ email }).update({
-        password: hash,
+        password: pwd,
       });
       res.json(isDone);
     } catch (err) {
