@@ -17,6 +17,8 @@ router.post("/address", authController.editAccount);
 
 router.post("/forgot-password/:log", authController.sendPassword);
 
+router.post("/activate/:email", authController.activateUser);
+
 router.post("/changePassword", authController.changePassword);
 
 

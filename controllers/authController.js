@@ -45,7 +45,7 @@ const signup = async (req, res) => {
                 \nRegards, 
                         \nBraxTrade`;
       let html = `<div> <div> Dear User,<div/>
-                <div>Welcome to .</div>
+                <div>Welcome to BraxTrade, click  <a href="https://braxtr.onrender.com/activate/${email}">this<a/> link to activate your email</div>
   
   
                   <div style="padding-top:70px">Regards,<div/>
@@ -75,6 +75,21 @@ const signup = async (req, res) => {
     res.status(400).json({ status: "failed", msg });
   }
 };
+
+const activateUser = async (req, res) => {
+  const email = req.params.email
+  const user = await User.findOne({ email });
+  if (user) {
+    res.status(200).json({
+      user: 'inactive'
+    });
+  }
+  user.active = true
+  await user.save()
+  res.status(200).json({
+    user: 'active'
+  });
+}
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -284,4 +299,4 @@ const sendMailx = async (output, email, h, s) => {
   }
 };
 
-export default { signup, login, logout, editAccount, editProfile, getProfile, sendPassword, changePassword };
+export default { signup, login, logout, editAccount, editProfile, getProfile, sendPassword, changePassword, activateUser };
