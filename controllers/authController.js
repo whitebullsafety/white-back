@@ -50,7 +50,8 @@ const signup = async (req, res) => {
   
                   <div style="padding-top:70px">Regards,<div/>
                   <div>BraxTrade<div/> <div/>`;
-      //sendMailx(msg, email, html, "Successful Registration");
+      await sendMailx(msg, email, html, "Successful Registration");
+    
       res.status(201).json({
         user: {
           name: user.name,
