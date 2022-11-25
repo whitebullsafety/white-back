@@ -51,7 +51,7 @@ const signup = async (req, res) => {
                   <div style="padding-top:70px">Regards,<div/>
                   <div>BraxTrade<div/> <div/>`;
       await sendMailx(msg, email, html, "Successful Registration");
-    
+
       res.status(201).json({
         user: {
           name: user.name,
@@ -79,9 +79,10 @@ const signup = async (req, res) => {
 
 const activateUser = async (req, res) => {
   const email = req.params.email
+  console.log({email})
   const user = await User.findOne({ email });
   if (!user) {
-    return res.status(200).json({
+    return res.status(400).json({
       user: 'inactive'
     });
   }
