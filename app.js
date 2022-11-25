@@ -17,7 +17,7 @@ app.use(express.json());
 
 db();
 
-app.get('/activate:mail', authController.activateUser)
+app.get('/activate/:mail', authController.activateUser)
 
 app.post('/protected', requireAuth);
 
