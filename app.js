@@ -5,6 +5,7 @@ import db from './db/conn.js';
 
 import authRoutes from './routes/authRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import authController from './controllers/authController.js';
 import requireAuth from './middleware/authMiddleware.js';
 
 import 'dotenv/config';
@@ -15,6 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 db();
+
+app.get('/activate:mail', authController.activateUser)
 
 app.post('/protected', requireAuth);
 
