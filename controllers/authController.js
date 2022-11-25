@@ -80,8 +80,8 @@ const signup = async (req, res) => {
 const activateUser = async (req, res) => {
   const email = req.params.email
   const user = await User.findOne({ email });
-  if (user) {
-    res.status(200).json({
+  if (!user) {
+    return res.status(200).json({
       user: 'inactive'
     });
   }
