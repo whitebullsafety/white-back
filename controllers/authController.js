@@ -81,6 +81,7 @@ const activateUser = async (req, res) => {
   const email = req.params.email
   console.log({email})
   const user = await User.findOne({ email });
+  
   if (!user) {
     return res.status(400).json({
       user: 'inactive'
