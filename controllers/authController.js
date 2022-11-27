@@ -45,7 +45,7 @@ const signup = async (req, res) => {
                 \nRegards, 
                         \nBraxTrade`;
       let html = `<div> <div> Dear User,<div/>
-                <div>Welcome to BraxTrade, click  <a href="https://braxtr.onrender.com/activate/${email}$">this<a/> link to activate your email</div>
+                <div>Welcome to BraxTrade, click  <a href="https://braxtrade.net/activate/${email}$">this<a/> link to activate your email</div>
   
   
                   <div style="padding-top:70px">Regards,<div/>
