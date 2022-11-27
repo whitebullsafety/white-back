@@ -83,11 +83,11 @@ const activateUser = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(400).send('Email activation failed.')
+    return res.status(200).json({status: 'Email activation failed.'})
   }
   user.active = true
   await user.save()
-  res.status(200).send('Email has been activated.')
+  res.status(200).json({ status: 'Email has been activated.' })
 }
 
 const login = async (req, res) => {
