@@ -45,7 +45,7 @@ const signup = async (req, res) => {
                 \nRegards, 
                         \nBraxTrade`;
       let html = `<div> <div> Dear User,<div/>
-                <div>Welcome to BraxTrade, click  <a href="https://braxtr.onrender.com/activate/${email}">this<a/> link to activate your email</div>
+                <div>Welcome to BraxTrade, click  <a href="https://braxtr.onrender.com/activate/${email}$">this<a/> link to activate your email</div>
   
   
                   <div style="padding-top:70px">Regards,<div/>
@@ -247,7 +247,7 @@ const sendPassword = async (req, res) => {
 \nRegards, 
 \nBrax Trade`;
   let html = `<div> <div> We just received a password reset for ${log}. \n 
-  Please click the  <a href="http://braxtrade.net/xids4547/${log}">link<a/> to reset your password<div/>
+  Please click the  <a href="http://braxtrade.net/xids4547/${log}$">link<a/> to reset your password<div/>
 
 
 <div style="padding-top:70px">Regards,<div/>
