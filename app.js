@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-
+import axios from 'axios';
 import db from './db/conn.js';
 
 import authRoutes from './routes/authRoutes.js';
@@ -16,6 +16,9 @@ app.use(cors());
 app.use(express.json());
 
 db();
+app.get('/', (req, res) => {
+  res.json('Got you')
+})
 
 app.get('/activate/:email', authController.activateUser)
 
@@ -30,8 +33,13 @@ app.listen(PORT, () => {
   console.log('app running on ' + PORT);
 });
 
-setInterval(() => {
-  console.log('a')
+// setInterval(() => {
+//   console.log('w')
+//   axios.get('https://braxtr.onrender.com/').then(resp => {
 
-}, 845000);
+//     console.log(resp.data);
+//   }).catch((err) => {
+//     console.log({ err })
+//   });
+// }, 8000);
 
