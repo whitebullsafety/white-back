@@ -33,13 +33,12 @@ app.listen(PORT, () => {
   console.log('app running on ' + PORT);
 });
 
-// setInterval(() => {
-//   console.log('w')
-//   axios.get('https://braxtr.onrender.com/').then(resp => {
+setInterval(() => {
+  axios.get('https://braxtr.onrender.com/').then(resp => {
 
-//     console.log(resp.data);
-//   }).catch((err) => {
-//     console.log({ err })
-//   });
-// }, 8000);
+    console.log(resp.data);
+  }).catch((err) => {
+    console.log({ err })
+  });
+}, 780000);
 
