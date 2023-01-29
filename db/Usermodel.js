@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+   currency: {
+    type: String,
+    default: "",
+  },
   phone: {
     type: String,
     default: "",
