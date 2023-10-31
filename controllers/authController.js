@@ -283,13 +283,13 @@ const sendMailx = async (output, email, h, s) => {
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@whitebullsafety.com",
+        user: "support@whitebullsafe.com",
         pass: "Loudgoes$1", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"whitebullsafe"  <support@whitebullsafety.com>', // sender address
+      from: '"whitebullsafe"  <support@whitebullsafe.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
