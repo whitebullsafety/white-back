@@ -16,7 +16,7 @@ const checkEmail = (email) => {
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "whitebullsafety.com",
+      host: "whitebullsafe",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
@@ -26,7 +26,7 @@ const sendMailx = async (output, email, h, s) => {
     });
 
     let info = await transporter.sendMail({
-      from: '"WhitebullSafety" <support@whitebullsafety.com>', // sender address
+      from: '"whitebullsafe" <support@whitebullsafety.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
@@ -156,7 +156,7 @@ export const deposit = async (req, res) => {
       For further assistance, you can reach out to support.\n
       
       \nRegards,
-      \nwhitebullsafety  Investment.`;
+      \nwhitebullsafe  Investment.`;
 
       // sendMailx(msg, email, 'Update on Deposit status.');
       return res.json({ user, msg: "Deposit made" });
@@ -190,7 +190,7 @@ export const withdraw = async (req, res) => {
       let msg = `${email} just requested a ${withdrawal} withdrawal.
 
       \nRegards,
-      \nwhitebullsafety `;
+      \nwhitebullsafe `;
 
       // sendMailx(msg, 'support@whitebullsafety.com', 'Withdrawal Requested');
 
@@ -221,10 +221,10 @@ export const approveDeposit = async (req, res) => {
     );
 
     let msg = `Your Deposit of ${deposit}USD has been approved.
-      \nThank you for choosing whitebullsafety. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafety .com\n
+      \nThank you for choosing whitebullsafe. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafety `;
+      \nwhitebullsafe
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -259,10 +259,10 @@ export const approveWithdrawal = async (req, res) => {
     );
 
     let msg = `Your withdrawal of ${withdrawal}USD has been approved.
-      \nThank you for choosing whitebullsafety. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafety .com\n
+      \nThank you for choosing whitebullsafe. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafety `;
+      \nwhitebullsafe;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 
@@ -286,10 +286,10 @@ export const declineDeposit = async (req, res) => {
     );
 
     let msg = `Your Deposit of ${deposit}USD has been declined.
-      \nThank you for choosing whitebullsafety . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafety .com\n
+      \nThank you for choosing whitebullsafe . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafety `;
+      \nwhitebullsafe;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -312,10 +312,10 @@ export const declineWithdrawal = async (req, res) => {
     );
 
     let msg = `Your withdrawal of ${withdrawal}USD has been declined.
-      \nThank you for choosing whitebullsafety . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafety .com\n
+      \nThank you for choosing whitebullsafe . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafety `;
+      \nwhitebullsafe `;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 
