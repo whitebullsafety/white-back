@@ -224,7 +224,7 @@ export const approveDeposit = async (req, res) => {
       \nThank you for choosing whitebullsafe. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafe
+      \nwhitebullsafe`;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -262,7 +262,7 @@ export const approveWithdrawal = async (req, res) => {
       \nThank you for choosing whitebullsafe. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafe;
+      \nwhitebullsafe`;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 
@@ -289,7 +289,7 @@ export const declineDeposit = async (req, res) => {
       \nThank you for choosing whitebullsafe . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebullsafe .com\n
 
       \nRegards,
-      \nwhitebullsafe;
+      \nwhitebullsafe`;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
